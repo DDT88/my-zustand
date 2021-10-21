@@ -9,8 +9,8 @@ pipeline {
 					}	
 				}
             steps {
-		sh 'mkdir /.npm'
-		sh 'chown -R 1001:1001 "/.npm"'
+		sh 'npm ci'
+		sh 'npm run build'
                 sh 'npm install' 
             }
         }
