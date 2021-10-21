@@ -12,7 +12,7 @@ pipeline {
 		sh 'npm ci'
 		sh 'npm run build'
 		sh 'npm install -g serve'
-		sh 'serve -s build -l 4000' 
+		sh 'nohup serve -s build -l 4000 &'
             }
         }
 }
