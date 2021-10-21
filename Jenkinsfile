@@ -5,7 +5,7 @@ pipeline {
 				agent { 
 					docker {
 						image 'node:lts-buster-slim' 
-					            args '-p 3000:3000 -p 4000:4000 -u root:root --detach' 
+					            args '-d -p 3000:3000 -p 4000:4000 -u root:root' 
 					}	
 				}
             steps {
