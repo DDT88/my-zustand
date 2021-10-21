@@ -5,13 +5,14 @@ pipeline {
 				agent { 
 					docker {
 						image 'node:lts-buster-slim' 
-					            args '-p 3000:3000 -u root:root' 
+					            args '-p 3000:3000 -p 4000:4000 -u root:root' 
 					}	
 				}
             steps {
 		sh 'npm ci'
 		sh 'npm run build'
-                sh 'npm install' 
+		sh 'npm install -g serve'
+		sh 'serve -s build' 
             }
         }
 }
