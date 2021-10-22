@@ -1,18 +1,10 @@
 pipeline {
  agent { label 'docker' }
     stages {
-        stage('Docker nodejs') { 
-				agent { 
-					docker {
-						image 'node:lts-buster-slim' 
-					            args '-d -p 3000:3000 -p 4000:4000 -u root:root' 
-					}	
-				}
+        stage('Deploy to docker and run') { 
             steps {
-		sh 'npm ci'
-		sh 'npm run build'
-		sh 'npm install -g serve'
-		sh 'nohup serve -s build -l 4000 &'
+				sh 'docker build . -t nodejs-zumpazumpaue'
+				sh 'docker run nodejs-zumpazumpaue'
             }
         }
 }
