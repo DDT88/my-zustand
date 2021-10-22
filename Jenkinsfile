@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy to docker and run') { 
             steps {
 				sh 'docker build . -t nodejs-zumpazumpaue'
-				sh 'docker run nodejs-zumpazumpaue'
+				sh 'docker run nodejs-zumpazumpaue --name zumpazumpaue -p 4000:4000' 
             }
         }
 }
