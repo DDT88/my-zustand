@@ -8,7 +8,9 @@ pipeline {
 		
         stage('Run Docker') { 
             steps {
-		sh 'docker run -h zumpazumpaue --rm --name zumpazumpaue -p 4000:4000 nodejs-zumpazumpaue serve -s build -l 4000'
+		sh 'docker run -h zumpazumpaue --rm --name zumpazumpaue -p 4000:4000 nodejs-zumpazumpaue serve -s build -l 4000' 
+	    		}
+		}
             }
         }
 }
